@@ -1,343 +1,466 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telégrafo</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telégrafo: A Revolução da Velocidade</title>
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Configuração do Tailwind (Tema Preto, Branco, Cinza e Azul Escuro) -->
+ 
+
+  <style>
+    /* Ocultar scrollbar mantendo a funcionalidade de scroll no carrossel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .background-morse {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background-morse > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .fundo-morse {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      font-family: monospace;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      letter-spacing: 0.7rem;
+      color: rgba(255, 255, 255, 0.161);
+      word-break: keep-all;
+    }
+
+  </style>
 </head>
-<style>
-        body, html {
-            overflow-x: hidden;
-        }
 
-        .sombra-branca{
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+<body class="bg-brandDark text-slate-200 font-sans overflow-x-hidden antialiased">
 
-         .carousel-inner, .carousel-item {
-            height: 100vh;
-        }
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 w-full bg-brandDark/90 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300">
+    <div class="w-full mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center">
+        <img src="img/telegrafo.png" class="h-full max-h-[40px] aspect-square" alt="">
+        <a href="#" class="pl-8 text-left font-mono font-bold text-lg md:text-xl tracking-widest text-white hover:text-brandAccent transition">
+          -----.-.....
+        </a>
+      </div>
+      
+      <nav class="md:block pt-8 md:pt-0">
+        <ul class="flex gap-6 lg:gap-8 text-sm font-medium uppercase tracking-wider text-slate-400">
+          <li><a href="#home" class="hover:text-white transition">Início</a></li>
+          <li><a href="#textos1" class="hover:text-white transition">História</a></li>
+          <li><a href="#evolucao" class="hover:text-white transition">Evolução</a></li>
+          <li><a href="#chat" class="hover:text-white transition">Chat</a></li>
+          <li><a href="#alfabeto" class="hover:text-white transition">Alfabeto</a></li>
+        </ul>
+      </nav>
 
-        /*animação monstra*/
-
-        .reveal{
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out;
-        }
-
-        .reveal.active{
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /*hero overlap*/
-
-        .overlap-container{
-            position:relative;
-            margin-top: -8%;
-            z-index: 10;
-            margin-bottom: 5%;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.0);
-            font-weight: bold;
-            font-size: 300%;
-        }
-        /*Para telas de até 768px*/
-        @media (max-width: 768px) {
-            .overlap-container {
-                font-size: 150%;
-                margin-top: -30%;
-                margin-bottom: 30%;
-            }
-
-            
-        }
-
-
-</style>
-<body class="m-0 border-0 bd-example">
-<div id="carouselExampleIndicators" class="carousel slide vh" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active h-100">
-      <img class="d-block w-100 h-100"  src="img\upscaler-Claude Shennon2-2x.jpg" alt="First slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100 vh-100" src="img\tekegrafo1.jpg" alt="Second slide">
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="min-h-screen flex items-center m-10  background-morse">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-12 py-12">
+      
+      <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+        <span class="inline-block bg-white text-brandDark px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6 rounded-sm">E se transformassemos sinais simples em uma nova linguagem?!</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+          O Nascimento da <br/><span class="text-slate-400">Comunicação Remota</span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-400 mb-8 max-w-lg">
+          Antes da internet, o mundo era movido pela velocidade de um cavalo. O telégrafo a partir do Código Morse reduziu meses de espera em meros segundos, reescrevendo a história da comunicação.
+        </p>
+
+        <a href="#textos1" class="inline-block bg-white text-brandDark px-8 py-4 font-bold rounded-full uppercase tracking-wider hover:bg-slate-200 transition transform hover:-translate-y-1 shadow-lg shadow-white/10">
+          Descubra a História
+        </a>
+      </div>
+
+      
+        <div class="w-full lg:w-1/2 relative flex items-center justify-center group">
+      
+        
+        
+       
+        <div id="hero-carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar w-full">
+            <!-- Item 1 -->
+            <div class="w-full shrink-0 snap-center flex justify-center px-4">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" 
+                alt="Tecnologia" class="w-full max-w-[550px] aspect-square object-cover rounded-3xl grayscale  ">
+            </div>
+            <!-- Item 2 -->
+            <div class="w-full shrink-0 snap-center flex justify-center px-4">
+            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?auto=format&fit=crop&q=80&w=1200" 
+                alt="Morse" class="w-full max-w-[550px] aspect-square object-cover rounded-3xl  grayscale  ">
+            </div>
+            <!-- Item 3 -->
+            <div class="w-full shrink-0 snap-center flex justify-center px-4">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" 
+                alt="Antiguidade" class="w-full max-w-[550px] aspect-square object-cover rounded-3xl  grayscale  ">
+            </div>
+        </div>
+
+        
+      </div>
+
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100 vh-100" src="img\tekegrafo2.jpg" alt="Third slide">
+  </section>
+
+  <!-- ================= TEXTOS ================= -->
+  <section id="textos1" class="py-16 md:py-24 bg-brandMid">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      
+      <!-- Capítulo I -->
+      <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-12 mb-20 lg:mb-24">
+        
+        <div class="rounded-xl w-full lg:w-1/6 h-[600px] lg:h-[300px] bg-brandDark mb-5 lg:mb-0">
+
+          <img src="img/Samuel Finley Breese Morse.png" 
+              alt="Samuel Morse" class="w-full h-full object-cover rounded-xl grayscale "/>
+          <h1 class="w-full text-left text-white/30 mb-6 text-sm italic p-2">
+              Samuel Finley Breese Morse
+          </h1>
+
+        </div>
+        
+          <div class="w-full lg:w-3/6">
+          <span class="text-md font-bold uppercase tracking-[0.2em] text-brandDark mb-2 block">Capítulo I</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">A Grande Ideia a partir de Eletroimãs</h2>
+          <p class="text-slate-300 leading-relaxed mb-4 text-base md:text-lg">
+            Samuel Morse era um pintor renomado até que, em 1832, teve sua vida transformada ao descobrir o funcionamento dos eletroímãs. Embora ideias de telégrafos elétricos existissem desde 1753, foi a persistência de Morse que mudou o jogo. Com a ajuda técnica de Alfred Vail e os conhecimentos de Leonard Gale, ele transformou um protótipo inicial que enviava sinais a apenas 12 metros em uma tecnologia capaz de cruzar quilômetros de distância.
+          </p>
+          <p class="text-slate-300 leading-relaxed mb-6 text-base md:text-lg">
+            Em 1838, a equipe desenvolveu o sistema que daria voz à máquina: o lendário Código Morse. Mesmo com um modelo funcional, eles enfrentaram anos de rejeição até que, em 1843, o Congresso dos EUA finalmente financiou uma linha de 60 km entre Baltimore e Washington. No ano seguinte, a primeira mensagem oficial cruzou os fios, provando que a distância havia sido dominada pela eletricidade.
+          </p>
+          <div class="pl-6 border-l-4 border-slate-950 py-2 text-slate-400 bg-slate-800 italic text-sm md:text-base">
+            "O que Deus fez" — primeira mensagem transmitida por telégrafo, 24 de maio de 1844.
+          </div>
+        </div>
+
+        <div class="w-full lg:w-2/6">
+          
+          <div class="bg-brandDark p-8 rounded-xl border-l-8 border-brandBlue shadow-2xl hover:-translate-y-2 transition-transform duration-300">
+            <img src="img/telegrafo_semaforico.jpg" 
+                alt="Telegrafo Semaforico" class="w-full max-w-[550px] aspect-[4/3] mb-4 object-cover rounded-3xl grayscale"/>
+         
+            <h4 class="text-xl font-bold mb-3 text-white">O Telégrafo Semafórico</h4>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+             Um meio de comunicação “rápida” a longas distância que consistia em postes altos no topo de torres operadas por humanos que, através de painéis e um código de 36 símbolos, transmitiam mensagens de uma torre para a outra visualmente. Esse método de comunicação tinha severas limitações pois a mensagem só poderia ser transmitida caso os painéis fossem visíveis para os operadores dentro das torres.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Capítulo II -->
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-12">
+        <div class="w-full lg:w-3/5">
+          <span class="text-md font-bold uppercase tracking-[0.2em] text-brandDark mb-2 block">Capítulo II</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">O Desenvolvimento da linguagem em Código Morse por completo</h2>
+          <p class="text-slate-300 leading-relaxed mb-4 text-base md:text-lg">
+            Finalizado em 1838 por Samuel Morse e Alfred Vail, o Código Morse é um sistema de representação de letras, algarismos e pontuações através de pontos, traços e espaços utilizado para a transmissão de mensagens por pulsos elétricos ao longo de um fio. Esse sistema foi amplamente utilizado nos séculos XIX e XX para comunicação entre cidades, estados, países e até continentes. <br/><br/>
+            Devido a essa necessidade de ser versátil e padronizado para a comunicação mundial, uma conferência de países Europeus criou, em 1851, uma derivação do Código Morse original chamada Código Morse Internacional ou Continental, a qual era mais simples e eficiente que o original por ter traços de tamanho constante e acentos gráficos, tornando-se mais utilizada.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-2/5">
+          <!-- Card Reto com cores ajustadas -->
+          <div class="bg-brandDark p-8 rounded-xl border-l-8 border-brandBlue shadow-2xl hover:-translate-y-2 transition-transform duration-300">
+            <img src="img/telégrafo elétrico.jpg" 
+                alt="Telegrafo Semaforico" class="w-full max-w-[550px] aspect-[16/9] mb-4 object-cover rounded-3xl grayscale"/>
+         
+            <h4 class="text-xl font-bold mb-3 text-white">O Telégrafo Elétrico</h4>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+             Um meio de comunicação “rápida” a longas distância que consistia em postes altos no topo de torres operadas por humanos que, através de painéis e um código de 36 símbolos, transmitiam mensagens de uma torre para a outra visualmente. Esse método de comunicação tinha severas limitações pois a mensagem só poderia ser transmitida caso os painéis fossem visíveis para os operadores dentro das torres.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100 vh-100" src="img/Samuel Finley Breese Morse 2.jpg" alt="Fourth slide">
+  </section>
+
+ <!-- ================= GALERIA (Carrossel Imagens) ================= -->
+ <section id="galeria" class="py-12 bg-slate-700">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 text-center">
+    <span class="text-xs font-bold uppercase tracking-[0.2em] text-brandAccent mb-4 block">Ok, mas como se prosseguiu a</span>
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-white">Evolução do Telégrafo Elétrico?</h2>
+    
+    <div class="relative flex items-center justify-center">
+    
+      <button id="btn-prev" class="absolute left-0 md:-left-5 z-20 w-10 h-10 md:w-12 md:h-12 bg-white text-brandDark rounded-full font-bold text-lg md:text-xl hover:scale-110 transition shadow-lg flex items-center justify-center opacity-80 hover:opacity-100">&#10094;</button>
+      
+      <div id="gallery-carrousel" class="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar w-full py-4 px-2">
+        
+        <!-- ITEM 1 -->
+        
+        <div class="w-full shrink-0 md:w-[calc(33.333%-1rem)] snap-center bg-brandDark border border-white/10 rounded-xl overflow-hidden shadow-xl group">
+      
+          <img src="img/diagrama_telegrafo_eletrico.png" alt="Manipulador Morse" class="w-full h-56 object-cover grayscale  transition duration-500">
+          <div class="p-6 text-center">
+            <strong class="block text-lg mb-1 text-white">Sua esquemática</strong>
+            <p class="text-sm text-slate-400">O diagrama do telégrafo revela um circuito simples: bateria, chave manual e receptor. Ao pressionar a chave, o circuito fecha-se e envia pulsos elétricos que ativam um eletroímã no destino, gerando cliques sonoros ou marcas em papel. Essa interrupção controlada do fluxo é o que transforma eletricidade pura em comunicação inteligente.</p>
+          </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="w-full shrink-0 md:w-[calc(33.333%-1rem)] snap-center bg-brandDark border border-white/10 rounded-xl overflow-hidden shadow-xl group">
+          <img src="img/sonorizador.jpg" alt="Protocolo Morse" class="w-full h-56 object-cover grayscale  transition duration-500">
+          <div class="p-6 text-center">
+            <strong class="block text-lg mb-1 text-white">Sonorizador</strong>
+            <p class="text-sm text-slate-400">Na década de 50, conforme os operadores obtiveram maestria sobre o Código Morse, a armação foi modificada para, ao invés de escrever a mensagem em alto relevo, emitir sons curtos (pontos) e longos (Traços), traduzidos em tempo real</p>
+          </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="w-full shrink-0 md:w-[calc(33.333%-1rem)] snap-center bg-brandDark border border-white/10 rounded-xl overflow-hidden shadow-xl group">
+          <img src="img/impressor-telegrafico.jpg" alt="Cabos Oceânicos" class="w-full h-56 object-cover grayscale transition duration-500">
+          <div class="p-6 text-center">
+            <strong class="block text-lg mb-1 text-white">Telégrafo impressor</strong>
+            <p class="text-sm text-slate-400">O telégrafo impressor automatizou a comunicação ao substituir cartões perfurados pelo sistema Teletype, que enviava sinais elétricos diretamente via teclado. Essa tecnologia pavimentou o caminho para a computação moderna em 1966, quando o padrão ASCII substituiu o limitado Código de Baudot, expandindo a biblioteca de caracteres e estabelecendo a base da transmissão de dados que utilizamos até hoje.</p>
+          </div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="w-full shrink-0 md:w-[calc(33.333%-1rem)] snap-center bg-brandDark border border-white/10 rounded-xl overflow-hidden shadow-xl group">
+          <img src="img/s-l400.jpg" alt="Baterias Antigas" class="w-full h-56 object-cover grayscale transition duration-500">
+          <div class="p-6 text-center">
+            <strong class="block text-lg mb-1 text-white">Multiplexing por divisão de frequência</strong>
+            <p class="text-sm text-slate-400">No início do século XX, diversas descobertas científicas nas engenharias permitiram que a comunicação por telégrafo se tornasse ainda mais eficiente. Durante essa época, era possível enviar diversas frequências pela mesma linha, as quais eram filtradas e decodificadas pelos receptores, possibilitando a operação simultânea de até 24 telégrafos no mesmo canal.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button id="btn-next" class="absolute right-0 md:-right-5 z-20 w-10 h-10 md:w-12 md:h-12 bg-white text-brandDark rounded-full font-bold text-lg md:text-xl hover:scale-110 transition shadow-lg flex items-center justify-center opacity-80 hover:opacity-100">&#10095;</button>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+</section>
 
-<div class="ml-2 p-2 reveal text-white overlap-container"><!--Título-->
-    A história da comunicação: Telégrafo
-</div>
+  <!-- ================= TEXTOS 2 ================= -->
+   <section id="textos2" class="py-2 lg:py-8 bg-brandMid">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      
+     
+      <div class="flex flex-col mt-8 lg:mt-0 lg:flex-row items-center gap-10 lg:gap-12 mb-12">
+        <div class="w-full">
+          <h2 class="text-4xl font-bold mb-8 text-white">O Código de Baudot</h2>
+          <div class="flex flex-col lg:flex-row gap-10 items-center justify-center">
+           <img src="img/Baudot.jpg" class="w-2/5  lg:w-1/5 relative aspect-square rounded-xl overflow-hidden shadow-2xl"/>
+          <p class="text-slate-300 w-4/5 leading-relaxed text-base md:text-lg">
+           Na década de 1870, <b>Émile Baudot</b> introduziu a multiplexação por divisão de tempo, permitindo que vários operadores usassem a mesma linha em intervalos fixos. Ao substituir a chave manual por teclados de cinco teclas, o sistema exigia sincronia absoluta para que os sinais fossem transmitidos e captados no tempo exato da sua janela de acesso.<br/><br/>
+           Essa inovação utilizava o Código de Baudot, capaz de gerar 32 combinações diferentes baseadas em estados de "ligado" ou "desligado", o que corresponde hoje a caracteres de 5 bits. Por utilizar essa lógica binária primitiva para codificar instruções, o sistema de Baudot é considerado um dos precursores diretos da linguagem dos computadores modernos, 
+           estabelecendo as bases fundamentais para a transmissão de dados digitais que utilizamos na computação atual.
+          </p>
+          </div>
+        </div>
 
-<div class="row ml-2 mb-4 mr-1"><!--Conteúdo-->
-    <div class="col-md-8">
-        <h3 class="font-weight-light border-bottom border-success">Criação</h3>
-        <p class="font-weight-lighter text-justify ">Samuel Finley Breese Morse foi um pintor e inventor nascido no ano de 1791 em Charlestown no estado de Massachusetts. Ele estudou na Yale College (Atualmente Yale University), se interessando no tópico de eletricidade, assunto pouco desbravado na época, através de palestras dadas na instituição por estudiosos da área. Após graduar-se, Samuel construiu uma carreira renomada como pintor até que, em meados de 1832, ao retornar de estudos artísticos na Europa, teve contato com a tecnologia recém-descoberta chamada eletroímãs: objetos que, através do controle da passagem de corrente elétrica por fios espiralados geralmente ao redor de um núcleo de ferro, geram um campo magnético temporário, ou seja, um imã que podia ser ligado e desligado.
-            Com o conceito de eletroímãs em mente, Samuel concebeu a ideia de um telégrafo elétrico, uma evolução do telégrafo semafórico que usava eletroímãs para a emissão e recepção de sinais. Entretanto, vale ressaltar que a ideia de telégrafos elétricos existia desde 1753 e existiam alguns modelos que funcionavam a curta distância desde 1774. Assim, o primeiro protótipo de Samuel ficou pronto em 1835, porém só conseguia enviar sinais até 12 metros de distância por um fio.
-            Foi somente entre 1837 e 1838, após ter contato com o trabalho de Joseph Henry sobre eletroímãs através de Leonard Gale, um amigo em comum, e com a ajuda de Alfred Vail, cuja família tinha uma oficina de metalurgia, que o protótipo de Morse evoluiu ao ponto de conseguir enviar sinais até 12 km de distância por um fio, culminando em uma sociedade entre Vail, Gale e Morse para a patente do Telégrafo.
-            Em 1838, Vail e Morse terminaram de desenvolver um sistema de representação de caracteres que viria a ser conhecido mundialmente como Código Morse. Porém , mesmo com um modelo funcional e um sistema de representação eficiente, Morse e seus sócios falharam em conseguir a aprovação do Congresso dos EUA para a construção de uma linha telegráfica e em organizar outra linha na Europa. Dessa forma, os sócios do projeto o deixaram de lado enquanto Morse ainda persistiu na concretização de seu telégrafo até que, em 1843, ele recebeu a permissão e financiamento do Congresso dos EUA para a construção de uma linha telegráfica de Baltimore a Washington, uma distância de aproximadamente 60 km, a qual foi concluída em 1844, quando a primeira mensagem foi enviada por Morse: “What hath God wrought!” (“Que obra Deus fez!”, tradução livre).
-            Contudo, o sucesso de Morse veio com diversas brigas judiciais com seus sócios e inventores rivais pela patente da invenção. Esse pesadelo só iria acabar em 1854, quando a Suprema Corte dos EUA deu a patente do telégrafo elétrico para Samuel Morse. Nos anos seguintes, as linhas telegráficas de Morse cruzaram o Atlântico e transformaram a comunicação mundial.</p>
-    </div>
+       
+
         
-    <div class="ml-1 mt-5 mr-4 col-md-3">
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca" src="img/Samuel Finley Breese Morse.png" alt="Samuel Finley Breese Morse">
-            <figcaption class="figure-caption text-center font-weight-bold text-dark">
-                Samuel Finley Breese Morse
-            </figcaption>
-        </figure>
-    </div>
-</div>
+      </div>
 
-<div class="row justify-content-end mr-2 ml-1 mb-4"><!--Conteúdo-->
-    <div class="ml-1 mt-5 col-md-3 order-2 order-md-1">
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca" src="img/telegrafo_semaforico.jpg" alt="Telégrafo semafórico">
-            <figcaption class="figure-caption font-weight-bold text-dark">
-                Diagrama de um telégrafo semafórico
-            </figcaption>
-        </figure>
+    </div>
+</section>
+
+  <!-- ================= TIMELINE ================= -->
+ <section id="evolucao" class="py-16 md:py-24 bg-brandDark m-5 md:m-10 md:mr-5 background-morse">
+  <div class="max-w-xl md:max-w-5xl mx-auto px-4 md:px-6 z-10 relative">
+
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">A Linha do Tempo da Conectividade</h2>
+      <p class="text-lg md:text-xl text-slate-400">Como foi a transição e reaproveitamento de infraestrutura que evoluiu do telegrafo internacional até a tecnologia da internet global atual</p>
     </div>
 
-    <div class="col-md-7 order-1 order-md-2">
-        <h3 class="font-weight-light border-bottom border-success">Telégrafo Semafórico</h3>
-        <p class="font-weight-lighter text-justify ">Um meio de comunicação “rápida” a longas distância que consistia em postes altos no topo de torres operadas por humanos que, através de painéis e um código de 36 símbolos, transmitiam mensagens de uma torre para a outra visualmente. Esse método de comunicação tinha severas limitações pois a mensagem só poderia ser transmitida caso os painéis fossem visíveis para os operadores dentro das torres, ou seja, em dias com névoa ou durante a noite, mensagens não poderiam ser transmitidas. </p>
+  
+    <div class="relative border-l-4 border-brandBlue/50 ml-4 md:border-l-0 md:ml-0">
+
+      <div class="hidden md:block absolute top-10 left-0 right-0 border-t-4 border-brandBlue/50"></div>
+
+     
+      <div class="flex flex-col md:flex-row md:gap-16 md:items-stretch">
+
+        <!-- Etapa 1 -->
+
+        <div class="mb-12 md:mb-0 relative pl-8 md:pl-0 md:flex-1 md:pt-24">
+
+         
+          <div class="absolute
+                      -left-[9px] top-1
+                      md:left-1/2 md:-translate-x-1/2 md:top-8
+                      w-4 h-4 bg-yellow-100 rounded-full ring-4 ring-brandDark z-10"></div>
+
+
+          <span class="inline-block text-md font-mono font-bold text-white tracking-widest uppercase mb-3 px-2 py-0.5 rounded
+                       md:absolute md:top-0 md:left-0 md:right-0 md:text-center md:mb-0">
+            1858
+          </span>
+
+          <div class="bg-brandBlue border border-white/5 rounded-xl overflow-hidden h-full">
+            <div class="h-44 overflow-hidden">
+              <img
+                src="img/cabos-telegrafo-navio.jpeg"
+                alt="Cabo submarino transatlântico"
+                class="w-full h-full object-cover "
+              />
+            </div>
+            <div class="p-5 md:p-6">
+              <h5 class="text-lg md:text-xl font-bold text-white mb-2">1. O Domínio dos Cabos Submarinos</h5>
+              <p class="text-sm md:text-base text-slate-400">Na segunda metade do século XIX, navios espalharam cabos blindados pelo fundo do oceano, criando a primeira rede global real. O cabo transatlântico de 1858 permitiu a comunicação entre Europa e América em minutos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="mb-12 md:mb-0 relative pl-8 md:pl-0 md:flex-1 md:pt-24">
+          <div class="absolute
+                      -left-[9px] top-1
+                      md:left-1/2 md:-translate-x-1/2 md:top-8
+                      w-6 h-6 bg-yellow-300/90 rounded-full ring-4 ring-brandDark z-10"></div>
+
+          <span class="inline-block text-md font-mono font-bold text-white tracking-widest uppercase mb-3 px-2 py-0.5 rounded
+                       md:absolute md:top-0 md:left-0 md:right-0 md:text-center md:mb-0">
+            1876
+          </span>
+
+          <div class="bg-brandBlue border border-white/5 rounded-xl overflow-hidden h-full">
+            <div class="h-44 overflow-hidden">
+              <img
+                src="img/cabo-telefonica.jpg"
+                alt="Era do telefone"
+                class="w-full h-full object-cover "
+              />
+            </div>
+            <div class="p-5 md:p-6">
+              <h5 class="text-lg md:text-xl font-bold text-white mb-2">2. Transmissão de Voz! A Era do Telefone</h5>
+              <p class="text-sm md:text-base text-slate-400">Com a patente do telefone, em vez de criar uma rede do zero, a telefonia expandiu-se reutilizando-se de postes, canaletas e a malha de fios já estabelecida pela telegrafia. Essa evolução permitiu que a estrutura física original passasse a carregar sinais elétricos mais complexos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="relative pl-8 md:pl-0 md:flex-1 md:pt-24">
+          <div class="absolute
+                      -left-[9px] top-1
+                      md:left-1/2 md:-translate-x-1/2 md:top-7
+                      w-8 h-8 bg-yellow-400 rounded-full z-10"></div>
+
+          <span class="inline-block text-md font-mono font-bold text-white tracking-widest uppercase mb-3 px-2 py-0.5 rounded
+                       md:absolute md:top-0 md:left-0 md:right-0 md:text-center md:mb-0">
+            1991
+          </span>
+
+          <div class="bg-brandBlue border border-white/5 rounded-xl overflow-hidden h-full">
+            <div class="h-44 overflow-hidden">
+              <img
+                src="img/cabos-internet.jpg"
+                alt="Era da Internet"
+                class="w-full h-full object-cover "
+              />
+            </div>
+            <div class="p-5  md:p-6">
+              <h5 class="text-lg md:text-xl font-bold text-white mb-2">3. O Salto para a Internet e a Fibra Óptica</h5>
+              <p class="text-sm md:text-base text-slate-400">Com o advento e popularização da internet, a fibra óptica refinou a infraestrutura de comunicação ao substituir o cobre por filamentos de vidro e pulsos de luz. A rede consolidou-se seguindo exatamente a geografia das rotas e os pontos de conexão pioneiros das eras anteriores.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
 
-<div class="row ml-2 mr-1 mb-4"><!--Conteúdo-->
-    <div class="col-md-7">
-        <h3 class="font-weight-light border-bottom border-success">Código Morse</h3>
-        <p class="font-weight-lighter text-justify ">Finalizado em 1838 por Samuel Morse e Alfred Vail, o Código Morse é um sistema de representação de letras, algarismos e pontuações através de pontos, traços e espaços utilizado para a transmissão de mensagens por pulsos elétricos ao longo de um fio. Esse sistema foi amplamente utilizado nos séculos XIX e XX para comunicação entre cidades, estados, países e até continentes. Devido a essa necessidade de ser versátil e padronizado para a comunicação mundial, uma conferência de países Europeus criou, em 1851, uma derivação do Código Morse original chamada Código Morse Internacional ou Continental, a qual era mais simples e eficiente que o original por ter traços de tamanho constante e acentos gráficos, tornando-se mais utilizada.</p>
-    </div>
-    <div class="ml-1 mt-5 mr-4 col-md-3">
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca d-block mx-auto" src="img/morse_internacional.jpg" alt="Tabela de código morse">
-            <figcaption class="figure-caption text-center font-weight-bold text-dark">
-                Código Morse Internacional
-            </figcaption>
-        </figure>
-    </div>
-</div>
 
-<div class="row justify-content-end mr-2 ml-1 mb-4"><!--Conteúdo-->
-    <div class="ml-1 mt-5 col-md-3 order-2 order-md-1">
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca" src="img/telégrafo elétrico.jpg" alt="Telégrafo elétrico">
-            <figcaption class="figure-caption font-weight-bold text-dark text-center">
-                Telégrafo elétrico
-            </figcaption>
-        </figure>
+  <!-- ================= TEXTOS 3 ================= -->
+   <section id="textos3" class=" py-8 bg-slate-700">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      
+     
+      <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-12 mb-12 lg:mb-14">
+        <div class="w-full lg:w-4/5">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Como foi consolidado o fim da Era Telegráfica</h2>
+          <p class="text-slate-300 leading-relaxed mb-4 text-base md:text-lg">
+            O telégrafo elétrico inaugurou a comunicação instantânea global, funcionando como o predecessor da internet ao permitir a troca massiva de informações entre continentes. Suas codificações, como os códigos Morse e Baudot, anteciparam a lógica binária da computação digital, enquanto a malha de cabos terrestres e submarinos da época estabeleceu a base geográfica para a fibra óptica atual.<br/><br/>
+            Esse avanço no processamento de dados culminou na formalização da <b>Teoria da Informação por Claude Shannon</b>, consolidando o telégrafo como um pilar fundamental da tecnologia moderna.
+          </p>
+        </div>
 
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca" src="img/diagrama_telegrafo_eletrico.png" alt="Diagrama de um telégrafo elétrico">
-            <figcaption class="figure-caption font-weight-bold text-dark text-center">
-                Diagrama de um telégrafo elétrico
-            </figcaption>
-        </figure>
-    </div>
-
-    <div class="col-md-8 order-1 order-md-2">
-        <h3 class="font-weight-light border-bottom border-success">Telégrafo Elétrico</h3>
-        <p class="font-weight-lighter text-justify ">A primeira ferramenta moderna de transmissão de mensagens de maneira quase instantânea a longa distância. O telégrafo elétrico, criado por Samuel Morse no século XIX, utiliza eletroímãs e fios para a transmissão de mensagens através da emissão de pulsos elétricos pontuais (pontos) e curtos (traços), os quais são decodificados pelo receptor da mensagem através do Código Morse. Os componentes mais notáveis do telégrafo são a Estação Emissora, composta por uma fonte de energia e uma chave manipuladora, a Linha, fio que conecta as duas estações, e a Estação Receptora, composta por um eletroímã conectado à Linha, uma bobina de papel e uma armação que é mantida aberta com a ajuda de uma mola e possui um perfurador em sua extremidade. O equipamento funciona da seguinte maneira:</p>
-        <li class="ml-4 mb-3 text-justify">Na Estação Emissora, o Emissor pressiona a chave manipuladora, completando o circuito entre a Estação Emissora e a Estação Receptora e emitindo um sinal elétrico.</li>
-        <li class="ml-4 mb-3 text-justify">O sinal elétrico percorre a Linha até chegar na Estação Receptora</li>
-        <li class="ml-4 mb-3 text-justify">Na Estação Receptora, o sinal elétrico chega ao eletroímã e o ativa, criando um campo magnético temporário, que atrai a armação.</li>
-        <li class="ml-4 mb-3 text-justify">Ao ser atraída, a extremidade da armação que contém um perfurador é pressionada contra uma tira de papel conectada à bobina, gravando um ponto ou um traço em relevo, dependendo de quanto tempo o Emissor manteve a chave manipuladora pressionada.</li>
-        <li class="ml-4 mb-3 text-justify">O sinal elétrico emitido acaba e o campo magnético temporário é desativado, fazendo com que a mola puxe a armação para sua posição inicial.
-            Depois de repetir esse processo diversas vezes, uma mensagem pode ser obtida em pontos e traços, a qual é traduzida através de Código Morse para uma linguagem inteligível.
-        </li>
-    </div>
-</div>
-
-<div class="row ml-2 mr-1 mb-4"><!--Conteúdo-->
-    <div class="col-md-8">
-        <h3 class="font-weight-light border-bottom border-success">A evolução do telégrafo elétrico</h3>
-        <li class="ml-4 mb-3 text-justify">
-            <h5>Sonorizador</h5>
-            <p class="font-weight-lighter text-justify">Na década de 50, conforme os operadores obtiveram maestria sobre o Código Morse, a armação foi modificada para, ao invés de escrever a mensagem em alto relevo, emitir sons curtos (pontos) e longos (Traços), os quais eram traduzidos em tempo real pelos operadores. </p>
-        </li>
-
-        <li class="ml-4 mb-3 text-justify">
-            <h5>Código de Baudot</h5>
-            <p class="font-weight-lighter text-justify">Na década de 70, diversas técnicas foram desenvolvidas a fim de tornar a comunicação via telégrafo mais eficiente. Um dos destaques da época foi o sistema desenvolvido por Jean-Maurice-Émile Baudot, o qual consistia em vários operadores de telégrafo conectados a uma mesma Linha, sendo que cada operador tinha acesso à linha por um determinado intervalo de tempo, permitindo que mais mensagens fossem enviadas e recebidas em uma mesma linha, esse conceito veio a ser chamado de time-division multiplexing (multiplexação por divisão de tempo) e o sistema de Baudot foi um dos seus precursores. O controle de quem tinha acesso à linha e por quanto tempo era feito por um dispositivo que mudava as conexões entre os teclados e a linha. Além disso, ao invés de uma chave manipuladora, eram usados teclados com 5 teclas, cada uma podendo alternar entre o estado ligado ou desligado, permitindo 32 combinações diferentes de 5 teclas que podiam assumir 2 estados, ou seja, 32 caracteres determinados pelo Código de Baudot que podiam ser transmitidos. Entretanto, por ser um sistema manual, seu funcionamento fluído dependia da sincronia entre os operadores e receptores.
-                Por fim, esse sistema de codificação de dados por uma sequência de estados ligados e desligados lembram alguma coisa? Isso mesmo, o Código de Baudot tem certa semelhança com o que hoje conhecemos como a linguagem dos computadores, o Código Binário, o qual se utiliza de zeros (desligado) e uns (ligado) para codificar instruções de uma maneira que a máquina consiga operar. Para o Código de Baudot, cada caractere correspondia, em termos atuais, a 5 bits.
-            </p>
-        </li>
-
-        <li class="ml-4 mb-3 text-justify">
-            <h5>Telégrafo impressor</h5>
-            <p class="font-weight-lighter text-justify">O telégrafo impressor é um tipo de telégrafo que imprime as mensagens recebidas, amplamente utilizado para correspondências. Inicialmente, com o desenvolvimento do sistema de multiplexing por divisão de tempo de Donald Murray,  o transmissor da mensagem a escrevia com uma máquina de escrever modificada, que, de acordo com uma versão modificada do Código de Baudot, perfurava cartões de papel que então eram lidos por um dispositivo, o qual enviava a mensagem através de uma linha até o receptor, que a imprimia. 
-                Algumas décadas após a implementação do sistema de Murray, a American Telephone & Telegraph Company criou um sistema chamado Teletype, o qual eliminava a etapa de passar uma série de cartões perfurados pelo dispositivo emissor fazendo com que a própria máquina de escrever, dependendo do caracter pressionado, enviasse sinais elétricos pela linha até o receptor da mensagem.
-                Por fim, com a chegada da Era da Computação, os 32 caracteres possibilitados pelo Código de Baudot se provaram insuficientes. Dessa forma, em 1966, o American Standard Code for Information Interchange (ASCII) foi introduzido, o qual consistia em 7 bits ao invés de 5, como era com o Código de Baudot, expandindo a quantidade de caracteres possíveis para 128. O qual é usado até hoje na computação e transmissão de dados.
-            </p>
-        </li>
-
-        <li class="ml-4 mb-3 text-justify">
-            <h5>Multiplexing por divisão de frequência</h5>
-            <p class="font-weight-lighter text-justify">No início do século XX, diversas descobertas científicas nas engenharias permitiram que a comunicação por telégrafo se tornasse ainda mais eficiente. Durante essa época, era possível enviar diversas frequências pela mesma linha, as quais eram filtradas e decodificadas pelos receptores, possibilitando a operação simultânea de até 24 telégrafos no mesmo canal.</p>
-        </li>
-
-        <li class="ml-4 mb-3 text-justify">
-            <h5>Fim da era do telégrafo</h5>
-            <p class="font-weight-lighter text-justify">Na segunda metade do século XX, com o fim da Segunda Guerra Mundial, o avanço rápido das tecnologias de informação geraram uma migração gradual de meios analógicos de transmissão para meios digitais, culminando no fim da Era do Telégrafo.</p>
-        </li>
-    </div>
-    <div class="ml-1 mt-5 mr-4 col-md-3">
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca d-block mx-auto" src="img/Baudot.jpg" alt="Retrato de Jean-Maurice-Émile Baudot">
-            <figcaption class="figure-caption text-center font-weight-bold text-dark">
-                Jean-Maurice-Émile Baudot
-            </figcaption>
-        </figure>
-
-        <figure class="figure w-100 mt-4">
-            <img class="figure-img img-fluid rounded sombra-branca d-block mx-auto" src="img/telegrafo_impressor.jpg" alt="Telégrafo impressor">
-            <figcaption class="figure-caption text-center font-weight-bold text-dark">
-                Telégrafo impressor
-            </figcaption>
-        </figure>
+          <img class="w-full lg:w-3/7 aspect-[4/3] shadow-2xl rounded-xl" src="img/uso-popular.jpg"/>
+            
+        </div>
         
-        <figure class="figure w-100 mt-4">
-            <img class="figure-img img-fluid rounded sombra-branca d-block mx-auto" src="img/divisao_frequencia.jpg" alt="Multiplexing por divisão de frequência">
-            <figcaption class="figure-caption text-center font-weight-bold text-dark">
-                Diagrama de divisão de frequência
-            </figcaption>
-        </figure>
+      </div>
+
     </div>
+</section>
+
+  <!-- ================= VIDEO RESUMO ================= -->
+ <section id="video-resumo" class="py-8 bg-brandDark m-5 md:m-10 md:mr-5 background-morse">
+ <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center text-center">
+    <span class="text-xs font-bold uppercase tracking-[0.2em] text-brandAccent mb-4 block">Que tal um</span>
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">Resumo beeeeem claro</h2>
+    <iframe 
+      class="w-full aspect-[16/9] px-4 lg:px-32" 
+      src="https://www.youtube.com/embed/jNQXAC9IVRw?si=SQds_mPZMCEG_n7x&controls=0" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen>
+    </iframe>
+    
+  </div>
+</section>
+
+
+  <!-- ================= PAGINAS INTERATIVAS ================= -->
+  <section id="chat" class="p-4 pt-8 bg-brandMid text-center">
+    <span class="text-sm font-bold uppercase tracking-[0.2em] text-brandAccent mb-2 ">Interaja Ao Vivo!</span>
+    <div class="w-full bg-black mx-auto text-center"> 
+        <iframe class="overflow-hidden outline-none w-full h-[100vh]" src="https://morsewebchat.onrender.com/" title="Morse"></iframe>
+        <iframe class="overflow-hidden outline-none w-full h-[100vh]" src="https://morsewebchat.onrender.com/tradutor.html" title="Morse"></iframe>
+    </div>
+  </section>
+
+  <!-- ================= ALFABETO ================= -->
+  <section id="alfabeto" class="bg-[url('https://images.newscientist.com/wp-content/uploads/2023/02/14110621/SEI_144042489.jpg')] bg-cover bg-center grayscale py-16 md:py-24 bg-brandDark border-y border-white/5">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 text-center z-10 relative">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Dicionário Morse</h2>
+      <p class="text-lg bg-black rounded-lg min-w-full py-4  md:text-xl text-slate-400 mb-12 md:mb-16">O Alfabeto Completo para decifrar a linguagem do telégrafo.</p>
+      
+     
+      <div id="grid-alfabeto" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 text-left">
+
 </div>
-
-<div class="row justify-content-end mr-2 ml-1 mb-4"><!--Conteúdo-->
-    <div class="ml-1 mt-5 col-md-3 order-2 order-md-1">
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca" src="img/Claude Shennon2.jpg" alt="Claude Shannon">
-            <figcaption class="figure-caption font-weight-bold text-dark text-center">
-                Claude Shannon
-            </figcaption>
-        </figure>
-
-        <figure class="figure w-100">
-            <img class="figure-img img-fluid rounded sombra-branca" src="img/tekegrafo2.jpg" alt="Diagrama de um telégrafo elétrico">
-            <figcaption class="figure-caption font-weight-bold text-dark text-center">
-                Operadora de telégrafo
-            </figcaption>
-        </figure>
     </div>
+  </section>
 
-    <div class="col-md-8 order-1 order-md-2">
-        <h3 class="font-weight-light border-bottom border-success">O legado do telégrafo</h3>
-        <p class="font-weight-lighter text-justify ">O telégrafo elétrico foi a invenção que inaugurou a comunicação instantânea a longas distâncias, conectando boa parte do mundo e permitindo uma gigantesca troca de informação entre pessoas, comunidades, cidades, estados, países e até continentes, sendo o predecessor do que atualmente conhecemos como a Internet. O telégrafo foi pivotal no avanço de diversas áreas do conhecimento pois, mais do que nunca até o momento de seu invento, era possível fazer uma teia de conhecimentos e informações que contribuíam para um avanço comum em determinada área. Ademais, os mecanismos usados para transmitir dados como o Código Morse e o Código de Baudot foram precursores do que atualmente é conhecido como o Código Binário, a linguagem dos computadores, abrindo as portas para avanços nunca antes vistos na humanidade com o advento da computação digital. Além disso, vale ressaltar que a rede de linhas telegráficas terrestres e submarinas que conectavam o mundo durante a Era do Telégrafo serviram de base para os atuais cabos de fibra óptica que sustentam a Internet mundial. Por fim, a invenção do telégrafo serviu de base para o aprofundamento no estudo da transmissão e processamento de dados que, com o trabalho do engenheiro elétrico e matemático Claude Shannon, resultaram na formalização matemática da quantificação, do armazenamento e da transmissão de dados, a Teoria da Informação.</p>
-    </div>
-</div>
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brandDark text-center flex flex-col items-center m-10 background-morse">
+    <p class="font-mono font-bold text-xl mb-4 text-white hover:text-brandAccent transition px-4 bg-brandDark">-----.-.....</p>
+    <div class="w-12 h-[2px] bg-brandAccent rounded mb-6"></div>
+    <p class="text-slate-400 text-sm mb-2 uppercase tracking-widest">© 2026 - Grupo Nn lembro o nome - Evolução Histórica 2026</p>
+    <p class="text-xs text-slate-600 text-bold-700">ICMC - USP</p>
+  </footer>
 
-<div class="mb-4 bg-success p-4 mr-4 sombra-branca row"><!--Conteúdo-->
-    <div class="col-md-12">
-        <h3 class="font-weight-light border-bottom border-white text-white">Vídeo explicativo</h3>
-    </div>
-        <div class="embed-responsive embed-responsive-16by9 shadow-sm rounded col-12 col-md-6">
-        <iframe 
-            class="embed-responsive-item" 
-            src="https://www.youtube.com/embed/jNQXAC9IVRw" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    <div class="col justify-content-md-center d-flex text-justify align-items-md-center">
-        <p class="col-12 col-md-8 text-white">Texto sobre o vídeo: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque reiciendis facere hic vel omnis dolorem inventore voluptas cum accusantium quibusdam, beatae ad a voluptatem, possimus reprehenderit consequuntur non distinctio mollitia!</p>
-    </div>
-</div>
-
-<div class="mb-4 bg-success p-4 ml-4 sombra-branca row"><!--Conteúdo-->
-    <div class="col-md-12">
-        <h3 class="font-weight-light border-bottom border-white text-white">Converse em morse</h3>
-    </div>
-        <div class="embed-responsive embed-responsive-16by9 shadow-sm rounded col-auto">
-        <iframe 
-            class="embed-responsive-item" 
-            src="https://morsewebchat.onrender.com/" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
-    </div>
-</div>
-
-<div class="mb-4 bg-success p-4 mr-4 sombra-branca row"><!--Conteúdo-->
-    <div class="col-md-12">
-        <h3 class="font-weight-light border-bottom border-white text-white">Bibliografia</h3>
-    <div class="col d-flex text-justify align-items-center">
-        <ul class="list-unstyled">
-            <a class="text-white" href="https://musecom.com.br/o-telegrafo/"><li>MUSECOM. O Telégrafo. 2022. Disponível em: https://musecom.com.br/o-telegrafo/ Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://brasilescola.uol.com.br/biografia/samuel-finley-breese.htm"><li>COSTA, Keilla Renata. Samuel Finley Breese Morse. Disponível em: https://brasilescola.uol.com.br/biografia/samuel-finley-breese.htm Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://www.britannica.com/biography/Samuel-F-B-Morse"><li>SILVA, Daniel Neves. Telégrafo. Disponível em: https://brasilescola.uol.com.br/historiag/telegrafo.htm Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://brasilescola.uol.com.br/historiag/telegrafo.htm"><li>MABEE, Carleton. Samuel F. B. Morse. 2026. Disponível em: https://www.britannica.com/biography/Samuel-F-B-Morse Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://pt.wikipedia.org/wiki/Samuel_Morse"><li>MCGILLEM, Clare D. telegraph. 2026. Disponível em:  https://www.britannica.com/biography/telegraph Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://www.youtube.com/watch?v=Mvqlsd3prW8"><li>BRITANNICA. Morse Code. 2026. Disponível em:  https://www.britannica.com/topic/Morse-Code Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://www.britannica.com/biography/Claude-Shannon"><li>MARKOWSKY, George. Claude Shannon. 2026. Disponível em:  https://www.britannica.com/biography/Claude-Shannon Acesso em: 20 abr. 2026</li></a>
-            <a class="text-white" href="https://www.youtube.com/watch?v=Mvqlsd3prW8"><li>ELEARNIN. Working of a Telegraph - Physics. Youtube, 28 de outubro de 2012. Disponível em: https://www.youtube.com/watch?v=Mvqlsd3prW8 Acesso em: 20 abr 2026</li></a>
-        </ul>
-    </div>
-</div>
-
-
+  <!-- ================= SCRIPTS ================= -->
+  <script src="main.js"></script>
 </body>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<script>
-
-    const obserevr = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting)
-            {
-                entry.target.classList.add('active');
-            }
-            else
-            {
-                entry.target.classList.remove('active')
-            }
-        })
-    })
-
-    const hiddenElements = document.querySelectorAll('.reveal');
-    hiddenElements.forEach((el) => obserevr.observe(el));
-
-</script>
-
 </html>
