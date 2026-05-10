@@ -52,7 +52,7 @@
 <body class="bg-brandDark text-slate-200 font-sans overflow-x-hidden antialiased">
 
   <!-- ================= NAVBAR ================= -->
-  <header class="sticky top-0 w-full bg-brandDark/90 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300">
+  <header id="navbar" class="sticky top-0 w-full bg-brandDark/90 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300">
     <div class="w-full mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
       <div class="flex items-center">
         <img src="img/telegrafo.png" class="h-full max-h-[40px] aspect-square" alt="">
@@ -64,7 +64,7 @@
       <nav class="md:block pt-8 md:pt-0">
        <!-- Na nav, reduza o texto no mobile com text-xs md:text-sm -->
         <ul class="flex gap-4 lg:gap-8 text-xs md:text-sm font-medium uppercase tracking-wider text-slate-400">
-          <li><a href="#home" class="hover:text-white transition">Início</a></li>
+          <li><a href="#" class="hover:text-white transition">Início</a></li>
           <li><a href="#textos1" class="hover:text-white transition">História</a></li>
           <li><a href="#evolucao" class="hover:text-white transition">Evolução</a></li>
           <li><a href="#chat" class="hover:text-white transition">Chat</a></li>
@@ -76,8 +76,8 @@
   </header>
 
   <!-- ================= HERO ================= -->
-  <section id="home" class="min-h-screen flex items-center m-4  background-morse">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-12 py-12">
+  <section id="home" class="min-h-screen flex items-center m-4 mt-0  background-morse">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-12 py-12 pt-0">
       
       <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
         <span class="inline-block bg-white text-brandDark px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6 rounded-sm">E se transformassemos simples sinais elétricos em uma nova linguagem?!</span>
@@ -435,9 +435,9 @@
   <!-- ================= PAGINAS INTERATIVAS ================= -->
   <section id="chat" class="p-4 py-6 bg-brandMid text-center">
     <span class="text-sm font-bold uppercase tracking-[0.2em] text-brandAccent ">Interaja Ao Vivo!</span>
-    <div class="w-full bg-black mx-auto text-center"> 
+    <div class="w-full mx-auto text-center"> 
         <iframe class="overflow-hidden outline-none w-full h-[100vh]" src="https://morsewebchat.onrender.com/" title="Morse"></iframe>
-        <iframe class="overflow-hidden outline-none w-full h-[60vh] lg:h-[100vh]" src="https://morsewebchat.onrender.com/tradutor.html" title="Morse"></iframe>
+        <iframe class="overflow-hidden outline-none w-full h-[60vh] lg:h-[88vh]" src="https://morsewebchat.onrender.com/tradutor.html" title="Morse"></iframe>
     </div>
   </section>
 
