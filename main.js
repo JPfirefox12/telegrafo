@@ -123,7 +123,11 @@ function enviarAvaliacao() {
     return;
   }
 
-  emailjs.send("service_0prpbat", "template_jg8qe0q", { nome, mensagem })
+ 
+  emailjs.send("service_0prpbat", "template_jg8qe0q", { 
+    name: nome,       
+    message: mensagem 
+  })
     .then(() => {
       alert("Avaliação enviada com sucesso!");
       document.getElementById("name").value = "";
