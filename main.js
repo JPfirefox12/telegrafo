@@ -109,4 +109,28 @@ setInterval(() => {
 }, 5000);
 
 
+//=============================================================================
+// Lógica do formulário de avaliação
 
+emailjs.init("y4gQBfZ8445sZsvbv");
+
+function enviarAvaliacao() {
+  const nome     = document.getElementById("name").value.trim();
+  const mensagem = document.getElementById("message").value.trim();
+
+  if (!nome || !mensagem) {
+    alert("Por favor, preencha o nome e a mensagem antes de enviar.");
+    return;
+  }
+
+  emailjs.send("service_0prpbat", "template_jg8qe0q", { nome, mensagem })
+    .then(() => {
+      alert("Avaliação enviada com sucesso!");
+      document.getElementById("name").value = "";
+      document.getElementById("message").value = "";
+    })
+    .catch((erro) => {
+      console.error("Erro ao enviar:", erro);
+      alert("Ocorreu um erro ao enviar. Tente novamente.");
+    });
+}

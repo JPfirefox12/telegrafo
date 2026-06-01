@@ -454,6 +454,63 @@
     </div>
   </section>
 
+    
+  <!-- ================= FORMS ================= -->
+<section id="forms" class="py-8 lg:py-16 bg-brandMid">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+
+    <div class="flex flex-col mt-8 lg:mt-0 lg:flex-row items-center gap-10 lg:gap-16 mb-12">
+
+    
+      <div class="w-full lg:w-1/2 flex flex-col justify-center">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-3 block">Sua opinião importa</span>
+        <h2 class="text-4xl font-bold mb-6 text-white">Quer avaliar nosso site?!</h2>
+        <p class="text-slate-300 leading-relaxed text-base md:text-lg mb-4">
+          Este projeto é um trabalho acadêmico desenvolvido pelo Grupo JOGUIJUMA para a disciplina de Evolução Histórica do ICMC — USP. Cada avaliação que recebemos é fundamental para aprimorarmos o conteúdo, a navegação e a apresentação visual da página.
+        </p>
+        <p class="text-slate-400 leading-relaxed text-base md:text-lg">
+          Se você leu sobre o Código Morse, explorou a linha do tempo ou interagiu com o chat, sua percepção é exatamente o que buscavamos a entregar para o público com esse nosso trabalho! :D
+        </p>
+      </div>
+
+      
+      <div class="w-full lg:w-1/2">
+        <div class="bg-brandDark/60 border border-white/10 rounded-xl p-8 shadow-2xl">
+
+          <div class="mb-6">
+            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Nome</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Seu nome"
+              class="w-full bg-brandMid border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-slate-400 transition"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Mensagem</label>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Escreva sua avaliação aqui..."
+              class="w-full bg-brandMid border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-slate-400 transition resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            onclick="enviarAvaliacao()"
+            class="w-full bg-white text-brandDark px-8 py-4 font-bold rounded-full uppercase tracking-wider hover:bg-slate-200  shadow-lg shadow-white/10"
+          >
+            Enviar Avaliação
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <!-- ================= FOOTER ================= -->
   <footer class="bg-brandDark text-center flex flex-col items-center m-4 background-morse">
     <p class="font-mono font-bold text-xl mb-4 text-white hover:text-brandAccent transition px-4 bg-brandDark">-----.-.....</p>
@@ -474,6 +531,7 @@
   </footer>
 
   <!-- ================= SCRIPTS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
